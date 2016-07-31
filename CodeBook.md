@@ -156,7 +156,7 @@ tBodyGyroJerkMean
 
 # Exact variables of the "second.csv" - averaged dataset
 
-Every variable has suffix "averaged"
+Every variable has suffix "_average"
 
 "feature_id","feature_name"
 "1","activity_id"
