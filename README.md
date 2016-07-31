@@ -55,10 +55,3 @@ Checks if the directory "tidy_data" exists, then creates it and saves two files:
 
 * "first.csv" is a detailed file with full list of observations
 * "second.csv" is a summarised one with averaged variables
-
-# Variables list
-
-I order to save space here I created two files with variables list:
-
-* "features_first.txt"
-* "features_second.txt"
