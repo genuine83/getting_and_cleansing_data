@@ -118,50 +118,39 @@ $(document).ready(function () {
 </div>
 
 
-<div id="code-book" class="section level1">
-<h1>Code Book</h1>
-<p>This document describes the logic of code inside “run_analysis.R” file and lists the variables in the resulting dataset.</p>
-<p>My script file does many tasks. Below is a list of the tasks:</p>
+<div id="the-data-source" class="section level2">
+<h2>The data source</h2>
 <ul>
-<li>Initilization of libraries and paths</li>
-<li>Getting input data from the Internet</li>
-<li>Loading datasets and supplementary data into memory</li>
-<li>Leaving out needed features</li>
-<li>Adding subjects and activities, merging datasets</li>
-<li>Writing final data to CSV-files</li>
+<li>Original datasource is located at: <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></li>
+<li>Original description of the data is located at: <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones" class="uri">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></li>
 </ul>
-<div id="initilization-of-libraries-and-paths" class="section level2">
-<h2>Initilization of libraries and paths</h2>
-<p>Here I load libraries, set up path constants and initilize working directories To avoid repetitive code with directories I used lapply function</p>
 </div>
-<div id="getting-input-data-from-the-internet" class="section level2">
-<h2>Getting input data from the Internet</h2>
-<p>Then I load zip-file and unzip it in “raw data” directory. Of course before doing that I clear all the old files which might been left.</p>
+<div id="data-set-info" class="section level2">
+<h2>Data Set Info</h2>
+<p>The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.</p>
+<p>The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.</p>
 </div>
-<div id="loading-datasets-and-supplementary-data-into-memory" class="section level2">
-<h2>Loading datasets and supplementary data into memory</h2>
-<p>Then I examined the content of the data and found several components of it:</p>
+<div id="the-data" class="section level2">
+<h2>The data</h2>
+<p>The dataset includes the following files:</p>
 <ul>
-<li>the observations itself divided into train and test files</li>
-<li>features</li>
-<li>activities</li>
-<li>subjects</li>
+<li>‘README.txt’</li>
+<li>‘features_info.txt’: Shows information about the variables used on the feature vector.</li>
+<li>‘features.txt’: List of all features.</li>
+<li>‘activity_labels.txt’: Links the class labels with their activity name.</li>
+<li>‘train/X_train.txt’: Training set.</li>
+<li>‘train/y_train.txt’: Training labels.</li>
+<li>‘test/X_test.txt’: Test set.</li>
+<li>‘test/y_test.txt’: Test labels.</li>
 </ul>
-<p>Every item is loaded into its own variable for puprose of future usage</p>
 </div>
-<div id="leaving-out-needed-features" class="section level2">
-<h2>Leaving out needed features</h2>
-<p>I use grep with a simple regular expression to filter out needed features. Those who have “std” and “mean” substrings. Then I subselect them from the datasets and add correct labels form the features file.</p>
+<div id="variables-of-the-first.csv---detailed-dataset" class="section level1">
+<h1>Variables of the “first.csv” - detailed dataset</h1>
+<p>“feature_id”,“feature_name” “1”,“tbodyacc-mean()-x” “2”,“tbodyacc-mean()-y” “3”,“tbodyacc-mean()-z” “4”,“tbodyacc-std()-x” “5”,“tbodyacc-std()-y” “6”,“tbodyacc-std()-z” “7”,“tgravityacc-mean()-x” “8”,“tgravityacc-mean()-y” “9”,“tgravityacc-mean()-z” “10”,“tgravityacc-std()-x” “11”,“tgravityacc-std()-y” “12”,“tgravityacc-std()-z” “13”,“tbodyaccjerk-mean()-x” “14”,“tbodyaccjerk-mean()-y” “15”,“tbodyaccjerk-mean()-z” “16”,“tbodyaccjerk-std()-x” “17”,“tbodyaccjerk-std()-y” “18”,“tbodyaccjerk-std()-z” “19”,“tbodygyro-mean()-x” “20”,“tbodygyro-mean()-y” “21”,“tbodygyro-mean()-z” “22”,“tbodygyro-std()-x” “23”,“tbodygyro-std()-y” “24”,“tbodygyro-std()-z” “25”,“tbodygyrojerk-mean()-x” “26”,“tbodygyrojerk-mean()-y” “27”,“tbodygyrojerk-mean()-z” “28”,“tbodygyrojerk-std()-x” “29”,“tbodygyrojerk-std()-y” “30”,“tbodygyrojerk-std()-z” “31”,“tbodyaccmag-mean()” “32”,“tbodyaccmag-std()” “33”,“tgravityaccmag-mean()” “34”,“tgravityaccmag-std()” “35”,“tbodyaccjerkmag-mean()” “36”,“tbodyaccjerkmag-std()” “37”,“tbodygyromag-mean()” “38”,“tbodygyromag-std()” “39”,“tbodygyrojerkmag-mean()” “40”,“tbodygyrojerkmag-std()” “41”,“fbodyacc-mean()-x” “42”,“fbodyacc-mean()-y” “43”,“fbodyacc-mean()-z” “44”,“fbodyacc-std()-x” “45”,“fbodyacc-std()-y” “46”,“fbodyacc-std()-z” “47”,“fbodyaccjerk-mean()-x” “48”,“fbodyaccjerk-mean()-y” “49”,“fbodyaccjerk-mean()-z” “50”,“fbodyaccjerk-std()-x” “51”,“fbodyaccjerk-std()-y” “52”,“fbodyaccjerk-std()-z” “53”,“fbodygyro-mean()-x” “54”,“fbodygyro-mean()-y” “55”,“fbodygyro-mean()-z” “56”,“fbodygyro-std()-x” “57”,“fbodygyro-std()-y” “58”,“fbodygyro-std()-z” “59”,“fbodyaccmag-mean()” “60”,“fbodyaccmag-std()” “61”,“fbodybodyaccjerkmag-mean()” “62”,“fbodybodyaccjerkmag-std()” “63”,“fbodybodygyromag-mean()” “64”,“fbodybodygyromag-std()” “65”,“fbodybodygyrojerkmag-mean()” “66”,“fbodybodygyrojerkmag-std()” “67”,“activity_id” “68”,“subject_id” “69”,“activity_name”</p>
 </div>
-<div id="adding-subjects-and-activities-merging-datasets" class="section level2">
-<h2>Adding subjects and activities, merging datasets</h2>
-<p>I add a column with subject id. Then merge two datasets into single one. Finally it is easy to add activities names.</p>
-<p>The most challenging task was to calculate all means (averages). I did that using “summarise_each” function which I found using Google search. It took some time.</p>
-</div>
-<div id="writing-final-data-to-csv" class="section level2">
-<h2>Writing final data to CSV</h2>
-<p>Checks if the directory “tidy_data” exists, then creates it and saves two files.</p>
-</div>
+<div id="variables-of-the-second.csv---averaged-dataset" class="section level1">
+<h1>Variables of the “second.csv” - averaged dataset</h1>
+<p>“feature_id”,“feature_name” “1”,“activity_id” “2”,“activity_name” “3”,“subject_id” “4”,“tbodyacc-mean()-x_average” “5”,“tbodyacc-mean()-y_average” “6”,“tbodyacc-mean()-z_average” “7”,“tbodyacc-std()-x_average” “8”,“tbodyacc-std()-y_average” “9”,“tbodyacc-std()-z_average” “10”,“tgravityacc-mean()-x_average” “11”,“tgravityacc-mean()-y_average” “12”,“tgravityacc-mean()-z_average” “13”,“tgravityacc-std()-x_average” “14”,“tgravityacc-std()-y_average” “15”,“tgravityacc-std()-z_average” “16”,“tbodyaccjerk-mean()-x_average” “17”,“tbodyaccjerk-mean()-y_average” “18”,“tbodyaccjerk-mean()-z_average” “19”,“tbodyaccjerk-std()-x_average” “20”,“tbodyaccjerk-std()-y_average” “21”,“tbodyaccjerk-std()-z_average” “22”,“tbodygyro-mean()-x_average” “23”,“tbodygyro-mean()-y_average” “24”,“tbodygyro-mean()-z_average” “25”,“tbodygyro-std()-x_average” “26”,“tbodygyro-std()-y_average” “27”,“tbodygyro-std()-z_average” “28”,“tbodygyrojerk-mean()-x_average” “29”,“tbodygyrojerk-mean()-y_average” “30”,“tbodygyrojerk-mean()-z_average” “31”,“tbodygyrojerk-std()-x_average” “32”,“tbodygyrojerk-std()-y_average” “33”,“tbodygyrojerk-std()-z_average” “34”,“tbodyaccmag-mean()_average&quot; “35”,“tbodyaccmag-std()_average&quot; “36”,“tgravityaccmag-mean()_average&quot; “37”,“tgravityaccmag-std()_average&quot; “38”,“tbodyaccjerkmag-mean()_average&quot; “39”,“tbodyaccjerkmag-std()_average&quot; “40”,“tbodygyromag-mean()_average&quot; “41”,“tbodygyromag-std()_average&quot; “42”,“tbodygyrojerkmag-mean()_average&quot; “43”,“tbodygyrojerkmag-std()_average&quot; “44”,“fbodyacc-mean()-x_average” “45”,“fbodyacc-mean()-y_average” “46”,“fbodyacc-mean()-z_average” “47”,“fbodyacc-std()-x_average” “48”,“fbodyacc-std()-y_average” “49”,“fbodyacc-std()-z_average” “50”,“fbodyaccjerk-mean()-x_average” “51”,“fbodyaccjerk-mean()-y_average” “52”,“fbodyaccjerk-mean()-z_average” “53”,“fbodyaccjerk-std()-x_average” “54”,“fbodyaccjerk-std()-y_average” “55”,“fbodyaccjerk-std()-z_average” “56”,“fbodygyro-mean()-x_average” “57”,“fbodygyro-mean()-y_average” “58”,“fbodygyro-mean()-z_average” “59”,“fbodygyro-std()-x_average” “60”,“fbodygyro-std()-y_average” “61”,“fbodygyro-std()-z_average” “62”,“fbodyaccmag-mean()_average&quot; “63”,“fbodyaccmag-std()_average&quot; “64”,“fbodybodyaccjerkmag-mean()_average&quot; “65”,“fbodybodyaccjerkmag-std()_average&quot; “66”,“fbodybodygyromag-mean()_average&quot; “67”,“fbodybodygyromag-std()_average&quot; “68”,“fbodybodygyrojerkmag-mean()_average&quot; “69”,“fbodybodygyrojerkmag-std()_average&quot;</p>
 </div>
 
 
