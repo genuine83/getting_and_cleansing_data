@@ -1,64 +1,145 @@
-# Code Book
+# Variables of the "first.csv" - detailed dataset
 
-This document describes the logic of code inside "run_analysis.R" file and lists the variables in the resulting dataset.
+"feature_id","feature_name"
+"1","tbodyacc-mean()-x"
+"2","tbodyacc-mean()-y"
+"3","tbodyacc-mean()-z"
+"4","tbodyacc-std()-x"
+"5","tbodyacc-std()-y"
+"6","tbodyacc-std()-z"
+"7","tgravityacc-mean()-x"
+"8","tgravityacc-mean()-y"
+"9","tgravityacc-mean()-z"
+"10","tgravityacc-std()-x"
+"11","tgravityacc-std()-y"
+"12","tgravityacc-std()-z"
+"13","tbodyaccjerk-mean()-x"
+"14","tbodyaccjerk-mean()-y"
+"15","tbodyaccjerk-mean()-z"
+"16","tbodyaccjerk-std()-x"
+"17","tbodyaccjerk-std()-y"
+"18","tbodyaccjerk-std()-z"
+"19","tbodygyro-mean()-x"
+"20","tbodygyro-mean()-y"
+"21","tbodygyro-mean()-z"
+"22","tbodygyro-std()-x"
+"23","tbodygyro-std()-y"
+"24","tbodygyro-std()-z"
+"25","tbodygyrojerk-mean()-x"
+"26","tbodygyrojerk-mean()-y"
+"27","tbodygyrojerk-mean()-z"
+"28","tbodygyrojerk-std()-x"
+"29","tbodygyrojerk-std()-y"
+"30","tbodygyrojerk-std()-z"
+"31","tbodyaccmag-mean()"
+"32","tbodyaccmag-std()"
+"33","tgravityaccmag-mean()"
+"34","tgravityaccmag-std()"
+"35","tbodyaccjerkmag-mean()"
+"36","tbodyaccjerkmag-std()"
+"37","tbodygyromag-mean()"
+"38","tbodygyromag-std()"
+"39","tbodygyrojerkmag-mean()"
+"40","tbodygyrojerkmag-std()"
+"41","fbodyacc-mean()-x"
+"42","fbodyacc-mean()-y"
+"43","fbodyacc-mean()-z"
+"44","fbodyacc-std()-x"
+"45","fbodyacc-std()-y"
+"46","fbodyacc-std()-z"
+"47","fbodyaccjerk-mean()-x"
+"48","fbodyaccjerk-mean()-y"
+"49","fbodyaccjerk-mean()-z"
+"50","fbodyaccjerk-std()-x"
+"51","fbodyaccjerk-std()-y"
+"52","fbodyaccjerk-std()-z"
+"53","fbodygyro-mean()-x"
+"54","fbodygyro-mean()-y"
+"55","fbodygyro-mean()-z"
+"56","fbodygyro-std()-x"
+"57","fbodygyro-std()-y"
+"58","fbodygyro-std()-z"
+"59","fbodyaccmag-mean()"
+"60","fbodyaccmag-std()"
+"61","fbodybodyaccjerkmag-mean()"
+"62","fbodybodyaccjerkmag-std()"
+"63","fbodybodygyromag-mean()"
+"64","fbodybodygyromag-std()"
+"65","fbodybodygyrojerkmag-mean()"
+"66","fbodybodygyrojerkmag-std()"
+"67","activity_id"
+"68","subject_id"
+"69","activity_name"
 
-My script file does many tasks. Below is a list of the tasks:
+# Variables of the "second.csv" - averaged dataset
 
-* Initilization of libraries and paths
-* Getting input data from the Internet
-* Loading datasets and supplementary data into memory
-* Leaving out needed features
-* Adding subjects and activities, merging datasets
-* Writing final data to CSV-files
-
-## Initilization of libraries and paths
-
-Here I load libraries, set up path constants and initilize working directories
-To avoid repetitive code with directories I used lapply function
-
-## Getting input data from the Internet
-
-Then I load zip-file and unzip it in "raw data" directory.
-Of course before doing that I clear all the old files which might been left.
-
-## Loading datasets and supplementary data into memory
-
-Then I examined the content of the data and found several components of it:
-
-* the observations itself divided into train and test files
-* features
-* activities
-* subjects
-
-Every item is loaded into its own variable for puprose of future usage
-
-## Leaving out needed features
-
-I use grep with a simple regular expression to filter out needed features.
-Those who have "std" and "mean" substrings.
-Then I subselect them from the datasets and add correct labels form the features file.
-
-## Adding subjects and activities, merging datasets
-
-I add a column with subject id.
-Then merge two datasets into single one.
-Finally it is easy to add activities names.
-
-The most challenging task was to calculate all means (averages).
-I did that using "summarise_each" function which I found using Google search. It took some time.
-
-Also I renamed variables in averaged file by adding "_average" suffix.
-
-## Writing final data to CSV
-
-Checks if the directory "tidy_data" exists, then creates it and saves two files:
-
-* "first.csv" is a detailed file with full list of observations
-* "second.csv" is a summarised one with averaged variables
-
-# Variables list
-
-I order to save space here I created two files with variables list:
-
-* "features_first.txt"
-* "features_second.txt"
+"feature_id","feature_name"
+"1","activity_id"
+"2","activity_name"
+"3","subject_id"
+"4","tbodyacc-mean()-x_average"
+"5","tbodyacc-mean()-y_average"
+"6","tbodyacc-mean()-z_average"
+"7","tbodyacc-std()-x_average"
+"8","tbodyacc-std()-y_average"
+"9","tbodyacc-std()-z_average"
+"10","tgravityacc-mean()-x_average"
+"11","tgravityacc-mean()-y_average"
+"12","tgravityacc-mean()-z_average"
+"13","tgravityacc-std()-x_average"
+"14","tgravityacc-std()-y_average"
+"15","tgravityacc-std()-z_average"
+"16","tbodyaccjerk-mean()-x_average"
+"17","tbodyaccjerk-mean()-y_average"
+"18","tbodyaccjerk-mean()-z_average"
+"19","tbodyaccjerk-std()-x_average"
+"20","tbodyaccjerk-std()-y_average"
+"21","tbodyaccjerk-std()-z_average"
+"22","tbodygyro-mean()-x_average"
+"23","tbodygyro-mean()-y_average"
+"24","tbodygyro-mean()-z_average"
+"25","tbodygyro-std()-x_average"
+"26","tbodygyro-std()-y_average"
+"27","tbodygyro-std()-z_average"
+"28","tbodygyrojerk-mean()-x_average"
+"29","tbodygyrojerk-mean()-y_average"
+"30","tbodygyrojerk-mean()-z_average"
+"31","tbodygyrojerk-std()-x_average"
+"32","tbodygyrojerk-std()-y_average"
+"33","tbodygyrojerk-std()-z_average"
+"34","tbodyaccmag-mean()_average"
+"35","tbodyaccmag-std()_average"
+"36","tgravityaccmag-mean()_average"
+"37","tgravityaccmag-std()_average"
+"38","tbodyaccjerkmag-mean()_average"
+"39","tbodyaccjerkmag-std()_average"
+"40","tbodygyromag-mean()_average"
+"41","tbodygyromag-std()_average"
+"42","tbodygyrojerkmag-mean()_average"
+"43","tbodygyrojerkmag-std()_average"
+"44","fbodyacc-mean()-x_average"
+"45","fbodyacc-mean()-y_average"
+"46","fbodyacc-mean()-z_average"
+"47","fbodyacc-std()-x_average"
+"48","fbodyacc-std()-y_average"
+"49","fbodyacc-std()-z_average"
+"50","fbodyaccjerk-mean()-x_average"
+"51","fbodyaccjerk-mean()-y_average"
+"52","fbodyaccjerk-mean()-z_average"
+"53","fbodyaccjerk-std()-x_average"
+"54","fbodyaccjerk-std()-y_average"
+"55","fbodyaccjerk-std()-z_average"
+"56","fbodygyro-mean()-x_average"
+"57","fbodygyro-mean()-y_average"
+"58","fbodygyro-mean()-z_average"
+"59","fbodygyro-std()-x_average"
+"60","fbodygyro-std()-y_average"
+"61","fbodygyro-std()-z_average"
+"62","fbodyaccmag-mean()_average"
+"63","fbodyaccmag-std()_average"
+"64","fbodybodyaccjerkmag-mean()_average"
+"65","fbodybodyaccjerkmag-std()_average"
+"66","fbodybodygyromag-mean()_average"
+"67","fbodybodygyromag-std()_average"
+"68","fbodybodygyrojerkmag-mean()_average"
+"69","fbodybodygyrojerkmag-std()_average"
